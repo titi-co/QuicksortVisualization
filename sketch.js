@@ -57,7 +57,6 @@ function draw() {
   background(0);
 
   for (let i = 0; i < sequence.length; i++) {
-    noStroke();
     if (states[i] == 0) {
       fill("#FF0000");
     } else if (states[i] == 1) {
