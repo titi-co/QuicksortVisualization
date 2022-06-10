@@ -3,6 +3,8 @@ let barWidth = 10;
 
 let states = [];
 
+let finished = false;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   sequence = new Array(floor(width / barWidth));
@@ -24,6 +26,12 @@ async function quickSort(arr, start, end) {
     quickSort(arr, start, index - 1),
     quickSort(arr, index + 1, end),
   ]);
+
+  if (start == 0 && end == sequence.length - 1) {
+    for (let i = 0; i < arr.length; i++) {
+      await Promise.all([(states[i] = 1), sleep(25)]);
+    }
+  }
 }
 
 async function partition(arr, start, end) {
